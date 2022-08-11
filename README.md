@@ -2,9 +2,9 @@
 
 - [x] [C++ Primer](https://15445.courses.cs.cmu.edu/fall2021/project0/) [auto graded result]() []
 - [x] [Buffer Pool Manager](https://15445.courses.cs.cmu.edu/fall2021/project1/) [auto graded result](./result/bufferPool) [lead board 168](./result/bufferPoolBoard)
-- [] [B+Tree Index](https://15445.courses.cs.cmu.edu/fall2021/project2/)
-- [] [Query Execution](https://15445.courses.cs.cmu.edu/fall2021/project3/)
-- [] [Concurrency Control](https://15445.courses.cs.cmu.edu/fall2021/project4/)
+- [ ] [B+Tree Index](https://15445.courses.cs.cmu.edu/fall2021/project2/)
+- [ ] [Query Execution](https://15445.courses.cs.cmu.edu/fall2021/project3/)
+- [ ] [Concurrency Control](https://15445.courses.cs.cmu.edu/fall2021/project4/)
 
 Use the code provided [here](https://15445.courses.cs.cmu.edu/fall2021/faq.html#q7) to auto-graded on gradescope.
 
