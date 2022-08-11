@@ -144,5 +144,25 @@ class BufferPoolManagerInstance : public BufferPoolManager {
   std::list<frame_id_t> free_list_;
   /** This latch protects shared data structures. We recommend updating this comment to describe what it protects. */
   std::mutex latch_;
+
+ private:
+  /**
+   * find if a page exists in page_table_
+   * @param page_id id of page to find
+   * @return the frame id of the page, or -1 if not found.
+   */
+  auto FindPg(page_id_t page_id) -> frame_id_t;
+
+  /**
+   * get free frame from free_list_ or replacer_
+   * @return frame_id_t of the free frame in the buffer
+   */
+  auto GetPg() -> frame_id_t;
+
+  /**
+   * Flush the contents of page to disk without a specific latch_
+   * @param page_id the page id of the page to be flushed.
+   */
+  void FlushPg(page_id_t page_id);
 };
 }  // namespace bustub

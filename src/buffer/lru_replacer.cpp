@@ -11,19 +11,50 @@
 //===----------------------------------------------------------------------===//
 
 #include "buffer/lru_replacer.h"
+#include <mutex>
 
 namespace bustub {
 
-LRUReplacer::LRUReplacer(size_t num_pages) {}
+LRUReplacer::LRUReplacer(size_t num_pages) : size_{0} {}
 
 LRUReplacer::~LRUReplacer() = default;
 
-auto LRUReplacer::Victim(frame_id_t *frame_id) -> bool { return false; }
+auto LRUReplacer::Victim(frame_id_t *frame_id) -> bool {
+  std::lock_guard<std::mutex> lock_guard(latch_);
+  if (replace_frames_.empty()) {
+    *frame_id = INVALID_PAGE_ID;
+    return false;
+  }
 
-void LRUReplacer::Pin(frame_id_t frame_id) {}
+  *frame_id = replace_frames_.back();
+  replace_frames_.pop_back();
+  replace_map_.erase(*frame_id);
+  size_--;
+  return true;
+}
 
-void LRUReplacer::Unpin(frame_id_t frame_id) {}
+void LRUReplacer::Pin(frame_id_t frame_id) {
+  std::lock_guard<std::mutex> lock_guard(latch_);
+  if (replace_map_.find(frame_id) == replace_map_.end()) {
+    return;
+  }
 
-auto LRUReplacer::Size() -> size_t { return 0; }
+  replace_frames_.erase(replace_map_[frame_id]);
+  replace_map_.erase(frame_id);
+  size_--;
+}
+
+void LRUReplacer::Unpin(frame_id_t frame_id) {
+  std::lock_guard<std::mutex> lock_guard(latch_);
+  if (replace_map_.find(frame_id) != replace_map_.end()) {
+    return;
+  }
+
+  replace_frames_.push_front(frame_id);
+  size_++;
+  replace_map_[frame_id] = replace_frames_.begin();
+}
+
+auto LRUReplacer::Size() -> size_t { return this->size_; }
 
 }  // namespace bustub
