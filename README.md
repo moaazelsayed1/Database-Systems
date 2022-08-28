@@ -1,8 +1,8 @@
 ## Projects
 
-- [x] [C++ Primer](https://15445.courses.cs.cmu.edu/fall2021/project0/)([auto-graded result](./results/primer.png))
+- [x] [C++ Primer](https://15445.courses.cs.cmu.edu/fall2021/project0/) ([auto-graded result](./results/primer.png))
 - [x] [Buffer Pool Manager](https://15445.courses.cs.cmu.edu/fall2021/project1/) ([auto graded result](./results/bufferPool.png)) ([Leaderboard](./results/bufferPoolBoard.png))
-- [x] [Hash Index](https://15445.courses.cs.cmu.edu/fall2021/project2/)([auto-graded result](./results/hashIndex.png)) ([Leaderboard](./results/hashIndexBoard.png))
+- [x] [Hash Index](https://15445.courses.cs.cmu.edu/fall2021/project2/) ([auto-graded result](./results/hashIndex.png)) ([Leaderboard](./results/hashIndexBoard.png))
 - [ ] [Query Execution](https://15445.courses.cs.cmu.edu/fall2021/project3/)
 - [ ] [Concurrency Control](https://15445.courses.cs.cmu.edu/fall2021/project4/)
 
