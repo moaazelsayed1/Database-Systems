@@ -1,3 +1,4 @@
+
 //===----------------------------------------------------------------------===//
 //
 //                         BusTub
@@ -92,7 +93,7 @@ class ExtendibleHashTable {
    * @param key the key to hash
    * @return the downcasted 32-bit hash
    */
-  inline auto Hash(KeyType key) -> uint32_t;
+  inline uint32_t Hash(KeyType key);
 
   /**
    * KeyToDirectoryIndex - maps a key to a directory index
@@ -119,7 +120,7 @@ class ExtendibleHashTable {
    * @param dir_page a pointer to the hash table's directory page
    * @return the bucket page_id corresponding to the input key
    */
-  inline auto KeyToPageId(KeyType key, HashTableDirectoryPage *dir_page) -> uint32_t;
+  inline auto KeyToPageId(KeyType key, HashTableDirectoryPage *dir_page) -> page_id_t;
 
   /**
    * Fetches the directory page from the buffer pool manager.

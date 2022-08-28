@@ -1,3 +1,4 @@
+
 //===----------------------------------------------------------------------===//
 //
 //                         BusTub
@@ -28,7 +29,8 @@ namespace bustub {
  *
  * Directory format (size in byte):
  * --------------------------------------------------------------------------------------------
- * | LSN (4) | PageId(4) | GlobalDepth(4) | LocalDepths(512) | BucketPageIds(2048) | Free(1524)
+ * | LSN (4) | PageId(4) | GlobalDepth(4) | LocalDepths(512) |
+ * BucketPageIds(2048) | Free(1524)
  * --------------------------------------------------------------------------------------------
  */
 class HashTableDirectoryPage {
@@ -93,7 +95,8 @@ class HashTableDirectoryPage {
    * upwards.  For example, global depth 3 corresponds to 0x00000007 in a 32-bit
    * representation.
    *
-   * @return mask of global_depth 1's and the rest 0's (with 1's from LSB upwards)
+   * @return mask of global_depth 1's and the rest 0's (with 1's from LSB
+   * upwards)
    */
   auto GetGlobalDepthMask() -> uint32_t;
 
